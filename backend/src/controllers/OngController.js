@@ -23,5 +23,22 @@ module.exports = {
     });
 
     return res.json({ id });
+  },
+
+  async delete(req, res) {
+    const { id } = req.params;
+    /*const ong = await connection("ongs")
+      .where("id", id)
+      .select("id");
+
+    if (ong.id !== id) {
+      return res.status(400).json({ error: "Id inválido!" });
+    }
+*/
+    await connection("ongs")
+      .where("id", id)
+      .delete();
+
+    return res.status(204).send();
   }
 };

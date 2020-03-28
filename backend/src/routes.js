@@ -1,5 +1,5 @@
 const express = require("express");
-const { celebrate, Segments, Joi } = require("celebrate");
+//const { celebrate, Segments, Joi } = require("celebrate");
 
 const OngController = require("./controllers/OngController");
 const IncidentController = require("./controllers/IncidentController");
@@ -20,6 +20,7 @@ router.post("/session", validLogIn(), SessionController.create);
 
 router.get("/ongs", OngController.read);
 router.post("/ongs", validOngCreate(), OngController.create);
+router.delete("/ongs/:id", OngController.delete);
 
 router.get("/profile", validOngProfile(), ProfileController.read);
 
