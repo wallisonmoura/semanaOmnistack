@@ -14,6 +14,8 @@ export default function Profile() {
 
   const ongId = localStorage.getItem("ongId");
   const ongName = localStorage.getItem("ongName");
+  const ongcity = localStorage.getItem("ongCity");
+  const ongUf = localStorage.getItem("ongUf");
 
   useEffect(() => {
     api
@@ -52,6 +54,9 @@ export default function Profile() {
       <header>
         <img src={logoImg} alt="Logo" />
         <span>Bem-Vindo, {ongName}</span>
+        <span>
+          {ongcity} / {ongUf}
+        </span>
 
         <Link className="button" to="/incidents/new">
           Cadastrar novo caso
